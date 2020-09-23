@@ -1,0 +1,269 @@
+@font-face {
+  font-family: "PT Sans";
+  src:
+    local("PT Sans"),
+    local("PTSans-Regular");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src:
+    local("Roboto Thin"),
+    local("Roboto-Thin");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src:
+    local("Roboto Bold"),
+    local("Roboto-Bold");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden,
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+
+  font-family: "PT Sans", "Arial", sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  width: 720px;
+}
+
+.header {
+  padding-bottom: 60px;
+}
+
+.nav {
+  padding: 9px 9px;
+  background-color: #134649;
+  color: #ffffff;
+}
+
+.nav__list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  font-size: 11px;
+  list-style: none;
+}
+
+.nav__list::before {
+  content: "";
+  background-image: url("../img/pc.gif");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  padding-left: 27px;
+}
+
+.nav__item {
+  position: relative;
+  display: inline-block;
+}
+
+.nav__item:not(:last-child)::after {
+  content: "/";
+  padding-left: 3px;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.nav__link:focus,
+.nav__link:hover {
+  text-decoration: underline;
+}
+
+.description__list {
+  margin: 0;
+  margin-bottom: 10px;
+  padding-left: 238px;
+
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+  color: #abb1b1;
+  font-size: 14px;
+}
+
+.description__item {
+  display: inline-block;
+  padding-right: 40px;
+}
+
+.property__list {
+  margin: 0;
+  padding: 0 20px;
+  list-style: none;
+}
+
+.property__list--nested {
+  padding: 0;
+}
+
+.property__header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 11px;
+
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+.property__header--closed ~ .property__item {
+  display: none;
+}
+
+.property__description {
+  position: relative;
+  width: 41%;
+  flex-shrink: 0;
+  padding-right: 45px;
+
+  font-weight: bold;
+  text-align: right;
+}
+
+.property__description:first-child::after,
+.property__item--description::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 16px;
+  width: 16px;
+  height: 15px;
+  background-image: url("../img/icon_opened.gif");
+  background-repeat: no-repeat;
+}
+
+.property__description:first-child::before,
+.property__item--description::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  right: 32px;
+  width: 9px;
+  height: 0;
+  border: 1px solid #d8dcdd;
+}
+
+.property__item--closed.property__item--description::after,
+.property__header--closed .property__description:first-child::after {
+  background-image: url("../img/icon_closed.gif");
+}
+
+.property__item {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 14px;
+}
+
+.property__item--closed .property__list--nested {
+  display: none;
+}
+
+.property__item--description {
+  position: relative;
+  flex-direction: column;
+}
+
+.property__item--description::after {
+  top: 3px;
+  right: 346px;
+}
+
+.property__item--description::before {
+  top: 9px;
+  right: 362px;
+  width: 15px;
+}
+
+.property__item--nested .property__value {
+  padding-left: 24px;
+}
+
+.property__item--nested .property__value::before {
+  left: 3px;
+}
+
+.property__item--nested .property__value::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 1px;
+  width: 0;
+  height: 25px;
+  border: 1px solid #d8dcdd;
+}
+
+.property__item--nested:first-of-type .property__value::after {
+  height: 19px;
+  top: -9px;
+}
+
+.property__name {
+  position: relative;
+  width: 41%;
+  flex-shrink: 0;
+  padding-bottom: 9px;
+  padding-right: 45px;
+
+  text-align: right;
+}
+
+.property__name::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: 23px;
+  width: 0;
+  height: 25px;
+  border: 1px solid #d8dcdd;
+}
+
+.property__value {
+  position: relative;
+  flex-grow: 1;
+
+  padding-bottom: 9px;
+}
+
+.property__value::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -23px;
+  width: 10px;
+  height: 0;
+  border: 1px solid #d8dcdd;
+}
