@@ -198,6 +198,11 @@ body {
   flex-direction: column;
 }
 
+.property__item--description > .property__name {
+  cursor: pointer;
+}
+
+
 .property__item--description::after {
   cursor: pointer;
   top: 3px;
