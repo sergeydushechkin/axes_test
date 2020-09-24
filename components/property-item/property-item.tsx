@@ -1,4 +1,10 @@
-export default function PropertyItem (props) {
+interface Props {
+  name: string;
+  value: string;
+  isNested: boolean;
+}
+
+export default function PropertyItem (props: Props) {
   const {name, value, isNested} = props;
 
   return (

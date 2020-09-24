@@ -1,6 +1,11 @@
 import PropertyList from '../property-list/property-list';
+import {Properties as PropertiesType} from '../../types';
 
-export default function Properties (props) {
+interface Props {
+  properties: PropertiesType[];
+}
+
+export default function Properties (props: Props) {
   const {properties} = props;
 
   return (

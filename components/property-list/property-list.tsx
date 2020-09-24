@@ -1,8 +1,16 @@
-import PropertyItem from '../property-item/property-item';
 import {useState} from 'react';
+import PropertyItem from '../property-item/property-item';
 import PropertyItemNested from '../property-item-nested/property-item-nested';
+import {PropertyItem as PropItem, PropNestedItem} from '../../types';
 
-export default function PropertyList (props) {
+type Items = PropItem | PropNestedItem;
+
+type Props = {
+  title: string;
+  items: Items[];
+}
+
+export default function PropertyList (props: Props) {
   const {title, items} = props;
   const [isClosed, setClosed] = useState(false)
 
@@ -13,10 +21,10 @@ export default function PropertyList (props) {
         <span className="property__description"></span>
       </li>
       {
-        items.map((item) => {
-          return !item.nested
-            ? <PropertyItem key={item.name} name={item.name} value={item.value} isNested={false}/>
-            : <PropertyItemNested key={item.name} item={item}/>
+        items.map((it) => {
+          return !it.nested
+            ? <PropertyItem key={it.name} name={it.name} value={it.value} isNested={false}/>
+            : <PropertyItemNested key={it.name} item={it}/>
         })
       }
     </ul>

@@ -1,4 +1,10 @@
-export default function NavMenu (props) {
+import {MenuItem} from '../../types';
+
+interface Props {
+  menuItems: MenuItem[]
+}
+
+export default function NavMenu (props: Props) {
   const {menuItems} = props;
 
   return (
